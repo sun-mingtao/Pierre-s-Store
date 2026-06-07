@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% set page = "shop" %}
+{% set title = "商店 - 皮埃尔商店" %}
+{% block content %}
+<!-- 这是模板引擎的继承语法。它告诉模板引擎：当前模板不是独立的页面，而是基于 base.html 这个基础模板构建的。渲染当前页面时，引擎会先加载 base.html，然后将当前模板中定义的“块（block）”内容去替换基础模板中对应的占位符。 -->
+<header class="page-head">
+  <div>
+    <p class="eyebrow">Seed Counter</p>
+    <h1>商店展示</h1>
+  </div>
+  <div class="toolbar">
+    <select id="seasonFilter">
+      <option value="">全部季节</option>
+      <option value="春季">春季</option>
+      <option value="夏季">夏季</option>
+      <option value="秋季">秋季</option>
+    </select>
+    <input id="searchInput" placeholder="查找种子或作物">
+  </div>
+</header>
+<section id="seedGroups" class="seed-groups"></section>
+<section id="shopSelectionBar" class="selection-bar" hidden>
+  <div>
+    <strong id="selectionSummary">未选择种子</strong>
+    <div id="selectionList" class="selection-list"></div>
+  </div>
+  <div class="selection-total">
+    <div class="selection-total-label">总费用</div>
+    <div class="selection-total-price">
+      <span id="selectionTotal">0</span><span class="selection-price-unit">g</span>
+    </div>
+  </div>
+  <div class="selection-actions">
+    <button class="ghost" id="clearSelection" type="button">清空</button>
+    <button class="primary" id="buySelection" type="button">购买选中</button>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or "种子交易与管理平台" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body data-page="{{ page or '' }}">
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="{{ url_for('main.shop_page') }}">
+        <span class="brand-mark"></span>
+        <span>
+          <strong>种子交易与<br>管理平台</strong>
+          <small>Seed Trading &<br>Management Platform</small>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="{{ url_for('main.shop_page') }}" data-nav="shop">商店</a>
+        <a href="{{ url_for('main.warehouse_page') }}" data-nav="warehouse">仓库</a>
+        <a href="{{ url_for('main.planner_page') }}" data-nav="planner">智能选购</a>
+        <a href="{{ url_for('main.billing_page') }}" data-nav="billing">账单</a>
+        <!-- 根据角色 控制导航栏 是否显示管理功能 -->
+        {% if user and user.role == "owner" %}
+        <a href="{{ url_for('main.admin_page') }}" data-nav="admin">皮埃尔管理</a>
+        {% endif %}
+      </nav>
+      <div class="profile">
+        <span id="roleBadge" class="tag">{{ "皮埃尔" if user and user.role == "owner" else "玩家" }}</span>
+        <strong id="userName">{{ user.username if user else "" }}</strong>
+        <span class="coins"><span class="coin"></span><span id="coinCount" title="点击修改金币">{{ user.coins if user else 0 }}</span>g</span>
+        <button class="ghost" id="logoutBtn">退出登录</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+  <div id="toast" class="toast" hidden></div>
+  {% if user %}
+  <script>
+    window.__currentUserId = {{ user.user_id }};
+  </script>
+  {% endif %}
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

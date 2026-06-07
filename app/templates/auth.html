@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>登录 - 皮埃尔商店</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body data-page="auth" class="auth-body">
+  <main class="auth-wrap">
+    <h1 class="auth-title">种子交易与管理平台</h1>
+    <section class="auth-panel">
+      <div class="tabs">
+        <button class="active" data-auth-tab="login">登录</button>
+        <button data-auth-tab="register">注册</button>
+      </div>
+
+      <form id="loginForm" class="form-stack">
+        <label>用户名<input name="username" autocomplete="username" required></label>
+        <label>密码<input name="password" type="password" autocomplete="current-password" required></label>
+        <button class="primary" type="submit">进入商店</button>
+      </form>
+
+      <form id="registerForm" class="form-stack" hidden>
+        <label>用户名<input name="username" autocomplete="username" required maxlength="50"></label>
+        <label>密码<input name="password" type="password" autocomplete="new-password" required minlength="4"></label>
+        <label>用户类型
+          <select name="role">
+            <option value="player">玩家</option>
+            <option value="owner">皮埃尔</option>
+          </select>
+        </label>
+        <button class="primary" type="submit">创建账号</button>
+      </form>
+    </section>
+  </main>
+  <img class="auth-divider" src="{{ url_for('main.picture_file', filename='sdv_divider.png') }}" alt="">
+  <div id="toast" class="toast" hidden></div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

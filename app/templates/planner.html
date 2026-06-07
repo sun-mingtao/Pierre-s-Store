@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% set page = "planner" %}
+{% set title = "智能选购 - 皮埃尔商店" %}
+{% block content %}
+<header class="page-head">
+  <div>
+    <p class="eyebrow">Smart Planner</p>
+    <h1>智能选购</h1>
+  </div>
+</header>
+<section class="planner-layout">
+  <form id="plannerForm" class="tool-panel form-stack">
+    <label>剩余天数<input name="days" type="number" min="1" max="112" value="28" required></label>
+    <label>预算金币<input name="budget" type="number" min="1" value="{{ user.coins }}" required></label>
+    <label>季节
+      <select name="season">
+        <option value="">全部季节</option>
+        <option value="春季">春季</option>
+        <option value="夏季">夏季</option>
+        <option value="秋季">秋季</option>
+      </select>
+    </label>
+    <button class="primary" type="submit">计算最优组合</button>
+  </form>
+  <section class="result-panel">
+    <div id="plannerSummary" class="summary-strip"></div>
+    <div id="plannerResult" class="seed-grid compact"></div>
+  </section>
+</section>
+{% endblock %}
+

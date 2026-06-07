@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% set page = "admin" %}
+{% set title = "管理 - 皮埃尔商店" %}
+{% block content %}
+<header class="page-head">
+  <div>
+    <p class="eyebrow">Pierre Desk</p>
+    <h1>商品管理</h1>
+  </div>
+  <div class="toolbar">
+    <select id="seasonFilter">
+      <option value="">全部季节</option>
+      <option value="春季">春季</option>
+      <option value="夏季">夏季</option>
+      <option value="秋季">秋季</option>
+    </select>
+    <input id="searchInput" placeholder="查找商品">
+  </div>
+</header>
+<section class="admin-layout">
+  <form id="seedForm" class="tool-panel form-grid">
+    <input type="hidden" name="product_id">
+    <label>种子名称<input name="name" required></label>
+    <label>作物名称<input name="mature_crop_name" required></label>
+    <label>季节<input name="selling_season" required placeholder="春季"></label>
+    <label>购买价<input name="seed_buy_price" type="number" min="0" step="1" required></label>
+    <label>种子卖价<input name="seed_sell_price" type="number" min="0" step="1" required></label>
+    <label>作物最高售价<input name="mature_crop_price" type="number" min="0" step="1" required></label>
+    <label>首次成熟天数<input name="growth_time_single" type="number" min="1" required></label>
+    <label>后续周期<input name="growth_time_multiple" type="number" min="0" value="0"></label>
+    <label>收获类型
+      <select name="harvest_type">
+        <option value="single">单次收获</option>
+        <option value="multiple">多次收获</option>
+      </select>
+    </label>
+    <label>状态
+      <select name="is_available">
+        <option value="1">上架</option>
+        <option value="0">下架</option>
+      </select>
+    </label>
+    <label class="wide">图片 URL<input name="image_url"></label>
+    <label class="wide">描述<textarea name="description" rows="3"></textarea></label>
+    <div class="form-actions wide">
+      <button class="primary" type="submit">保存商品</button>
+      <button class="ghost" type="button" id="resetSeedForm">清空</button>
+    </div>
+  </form>
+  <section id="adminGrid" class="seed-grid compact"></section>
+</section>
+{% endblock %}
+

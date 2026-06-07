@@ -1,0 +1,8 @@
+{
+  "python-envs.defaultEnvManager": "ms-python.python:conda",
+  "python-envs.defaultPackageManager": "ms-python.python:conda",
+  "Codegeex.GenerationPreference": "automatic",
+  "editor.tabSize": 4,
+  "Codegeex.CompletionDelay": 0.4,
+  "Codegeex.RepoIndex": true
+}

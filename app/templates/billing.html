@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% set page = "billing" %}
+{% set title = "账单 - 皮埃尔商店" %}
+{% block content %}
+<header class="page-head">
+  <div>
+    <p class="eyebrow">Ledger</p>
+    <h1>交易账单</h1>
+  </div>
+  <div class="toolbar">
+    <select id="billActionFilter">
+      <option value="">全部类型</option>
+      <option value="buy">购买</option>
+      <option value="sell">出售</option>
+    </select>
+    <input id="billSearchInput" placeholder="搜索种子或用户">
+  </div>
+</header>
+<section class="bill-panel">
+  <div id="billSummary" class="summary-strip"></div>
+  <div id="billEmpty" class="empty" hidden>暂无账单记录。</div>
+  <div class="bill-table-wrap">
+    <table id="billTable" class="bill-table">
+      <thead>
+        <tr>
+          <th>时间</th>
+          <th>类型</th>
+          <th>种子</th>
+          <th>数量</th>
+          <th>单价</th>
+          <th>小计</th>
+          <th class="bill-user-col">用户</th>
+        </tr>
+      </thead>
+      <tbody id="billTableBody"></tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
