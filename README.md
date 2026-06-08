@@ -15,8 +15,8 @@
 $env:PIERRES_DB_HOST="localhost"
 $env:PIERRES_DB_PORT="3306"
 $env:PIERRES_DB_NAME="pierres_store"
-$env:PIERRES_DB_USER="sunmingtao"
-$env:PIERRES_DB_PASSWORD="你的密码"
+$env:PIERRES_DB_USER="***"
+$env:PIERRES_DB_PASSWORD="***"
 ```
 
 ## 快速启动
