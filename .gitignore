@@ -24,3 +24,34 @@ desktop.ini
 .idea/
 .vscode/
 *.sublime-project
+
+# AI 工具本地配置
+.claude/settings.local.json
+.cursor/
+.aider*
+.continue/
+.cody/
+
+# 密钥和凭证
+*.pem
+*.key
+credentials.json
+.npmrc
+.aws/
+.ssh/
+
+# 构建、编译输出
+dist/
+build/
+out/
+target/
+node_modules/
+venv/
+__pycache__/
+*.pyc
+*.class
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
