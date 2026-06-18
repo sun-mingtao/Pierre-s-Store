@@ -9,16 +9,6 @@
 - 已存在数据库：`pierres_store`
 - 默认连接：`localhost:3306 / sunmingtao`
 
-如需覆盖数据库连接，可设置环境变量：
-
-```powershell
-$env:PIERRES_DB_HOST="localhost"
-$env:PIERRES_DB_PORT="3306"
-$env:PIERRES_DB_NAME="pierres_store"
-$env:PIERRES_DB_USER="***"
-$env:PIERRES_DB_PASSWORD="***"
-```
-
 ## 快速启动
 
 ```powershell
